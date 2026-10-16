@@ -1,0 +1,44 @@
+{
+  // Placement: the app sizes the SketchyBar item `item` to `width`,
+  // then draws over it, `height` tall, centered (y_offset > 0 moves it up)
+  "item": "spectrum",
+  // Path to the sketchybar binary, found automatically in /opt/homebrew/bin or /usr/local/bin
+  // "sketchybar": "/opt/homebrew/bin/sketchybar",
+  "width": 300,
+  "height": 26,
+  "padding": 2,
+  "y_offset": 0,
+
+  // Fill colors, from low to high: 0xAARRGGBB like SketchyBar, or #RRGGBB
+  "colors": ["0xff1a0526", "0xff5c1170", "0xffa3157f", "0xffe0306a", "0xffff4a1c"],
+  // "level": color by loudness, "frequency": gradient from lows to highs
+  "color_mode": "level",
+  "fill_opacity": 0.9,
+  "line_color": "0xffa9b4d4",
+  "line_width": 1,
+  "grid": true,
+  "grid_color": "0x18ffffff",
+
+  // Samples per FFT (power of two, 256 to 16384): more = finer lows, but later
+  "fft_size": 4096,
+  // Second, shorter FFT used above `crossover` Hz, so highs and transients lag less (0 disables)
+  "fast_fft_size": 1024,
+  "crossover": 1000,
+  // hann, hamming, blackman, blackman_harris, flat_top, rectangular
+  "window": "hann",
+  // log, mel, linear
+  "scale": "log",
+  "min_freq": 20,
+  "max_freq": 20000,
+  "min_db": -70,
+  "max_db": -10,
+  // dB per octave around 1 kHz, lifts the highs so music looks flat (MiniMeters "Tilt")
+  "tilt": 4.5,
+  // 0 to 0.99 (or 0 to 99 %): share of the previous frame kept, at 60 fps (MiniMeters "Smoothing")
+  "smoothing": 0.6,
+
+  // 0 follows the display refresh rate
+  "fps": 0,
+  "hide_when_silent": true,
+  "silence_timeout": 3
+}
